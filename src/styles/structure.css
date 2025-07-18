@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+box-sizing: border-box;
+padding: 0;
+}
+
+body{
+    padding: 1rem;
+}
+
+.md-box {
+    padding: 10px 15px;
+    font-size: 2rem;
+    text-align: center;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: #f3f3f3;
+}
+
+button{
+    border: none;
+    padding: .8rem 1.3rem;
+    font-size: 1.1rem;
+    margin: 1rem;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+button.pri {
+    background-color: #835ab5;
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+}
+button.sec {
+    background-color: rgb(170, 140, 207);
+}
+
+input {
+    border : 1px solid lightgray;
+    padding: 0.5rem;
+    font-size: 2rem;
+}
+input:first-child {
+    outline: none;
+}
+
+input.digit {
+    width: 10rem;
+}

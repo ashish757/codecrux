@@ -1,0 +1,7 @@
+.displayArray {
+    display: flex;
+}
+
+.displayArray.col {
+    flex-direction: column;
+}
