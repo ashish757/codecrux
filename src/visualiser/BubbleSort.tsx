@@ -8,7 +8,7 @@ const BubbleSortVisualizer: React.FC = () => {
   const [array, setArray] = useState<number[]>([]);
   const [currentBarPair, setcurrentBarPair] = useState<[number, number] | null>(null);
   const [sortedIndices, setSortedIndices] = useState<number[]>([]);
-  const [isSorting, setIsSorting] = useState(false);
+  const [_, setIsSorting] = useState(false);
 
   const [isPaused, setIsPaused] = useState(false);
   const isPausedRef = useRef<boolean>(false); // Use a ref to avoid re-rendering on pause state change
