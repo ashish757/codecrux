@@ -8,8 +8,8 @@ interface CardData {
   title: string;
   description: string;
   tags: string[];
-  buttonText?: string;
-  onButtonClick?: () => void;
+  buttonText: string;
+  link: string | null;
 }
 
 interface CardsProps {
@@ -28,7 +28,7 @@ const Cards: React.FC<CardsProps> = ({ cards }) => {
             description={card.description}
             tags={card.tags}
             buttonText={card.buttonText}
-            onButtonClick={card.onButtonClick}
+            link={card.link}
           />
         ))}
       </div>

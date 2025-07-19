@@ -1,13 +1,14 @@
 import React from 'react';
 import './Card.css';
+import { Link } from 'react-router-dom';
 
 interface CardProps {
   image?: string;
   title: string;
   description: string;
   tags: string[];
-  buttonText?: string;
-  onButtonClick?: () => void;
+  buttonText: string;
+  link: string | null;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -16,7 +17,7 @@ const Card: React.FC<CardProps> = ({
   description,
   tags,
   buttonText = "Learn More",
-  onButtonClick
+  link
 }) => {
   return (
     <div className="card">
@@ -35,9 +36,21 @@ const Card: React.FC<CardProps> = ({
             </span>
           ))}
         </div>
-        <button className="card-button" onClick={onButtonClick}>
-          {buttonText}
-        </button>
+        {
+          link ? (
+                  <Link to={link} className="card-link">
+                  <button className="card-button">
+                    {buttonText}
+                  </button>
+                </Link>
+                ) : (
+                  <button className="card-button">
+                    {buttonText}
+                  </button>
+                )
+        }
+        
+  
       </div>
     </div>
   );

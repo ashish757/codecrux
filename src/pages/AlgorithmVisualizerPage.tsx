@@ -15,9 +15,7 @@ const VisualizerHome: React.FC = () => {
             description: 'Efficiently search through sorted arrays using the divide and conquer approach. Time complexity: O(log n)',
             tags: ['Search', 'Divide & Conquer', 'O(log n)'],
             buttonText: 'Try Binary Search',
-            onButtonClick: () => {
-                window.location.href = '/visualiser/binarysearch';
-            }
+            link: "/visualiser/binarysearch"
         },
         {
             id: '2',
@@ -25,9 +23,7 @@ const VisualizerHome: React.FC = () => {
             description: 'A simple sorting algorithm that repeatedly steps through the list and swaps adjacent elements if they are in the wrong order.',
             tags: ['Sorting', 'Comparison', 'O(n²)'],
             buttonText: 'Try Bubble Sort',
-            onButtonClick: () => {
-                window.location.href = '/visualiser/bubblesort';
-            }
+            link: "/visualiser/bubblesort",
         },
         {
             id: '3',
@@ -35,6 +31,7 @@ const VisualizerHome: React.FC = () => {
             description: 'An efficient divide-and-conquer sorting algorithm that picks a pivot element and partitions the array around it.',
             tags: ['Sorting', 'Divide & Conquer', 'O(n log n)'],
             buttonText: 'Coming Soon',
+            link: null
         },
         {
             id: '4',
@@ -42,6 +39,7 @@ const VisualizerHome: React.FC = () => {
             description: 'A stable divide-and-conquer sorting algorithm that divides the array into halves and merges them back in sorted order.',
             tags: ['Sorting', 'Stable', 'O(n log n)'],
             buttonText: 'Coming Soon',
+            link: null
         }
     ];
 

@@ -6,7 +6,7 @@ import React from 'react';
 
 const App: React.FC = () => {
     return (
-        <Router>
+        <Router basename="/codecrux">
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/visualiser/*" element={<AlgorithmVisualizer />} />
