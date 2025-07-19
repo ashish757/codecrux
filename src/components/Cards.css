@@ -1,0 +1,61 @@
+.cards-container {
+  width: 100%;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  justify-items: center;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .cards-container {
+    padding: 20px 16px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-container {
+    padding: 16px 12px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Animation delays for staggered entrance */
+.cards-grid > *:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.cards-grid > *:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.cards-grid > *:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.cards-grid > *:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.cards-grid > *:nth-child(5) {
+  animation-delay: 2s;
+}
+
+.cards-grid > *:nth-child(6) {
+  animation-delay: 2.5s;
+}

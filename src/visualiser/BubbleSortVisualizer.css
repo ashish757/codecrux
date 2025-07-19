@@ -1,0 +1,40 @@
+.container {
+  text-align: center;
+  font-family: sans-serif;
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.controls {
+  margin: 15px 0;
+}
+
+.bar-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 260px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  gap: 3px;
+  background-color: #f9f9f9;
+}
+
+.bar {
+  width: 12px;
+  background-color: gray;
+  transition: height 0.3s, background-color 0.3s;
+}
+
+.bar.current {
+  background-color: orange;
+}
+
+.bar.sorted {
+  background-color: limegreen;
+}

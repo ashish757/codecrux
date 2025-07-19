@@ -1,0 +1,36 @@
+/* Navbar component styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.navbar-link {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: #45a049;
+}
+
+.navbar-title {
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+}

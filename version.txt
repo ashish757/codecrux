@@ -1,0 +1,16 @@
+v1.1.1
+-landing page
+-algorithm visualizer page
+-algorithms --> bubble sort, binary search
+-generating new array
+-play/pause functionality
+-controls & navbar
+
+
+v1.2.1
+-disable control buttons accordingly
+-improve pause functionality
+
+v.1.2.2
+-imporve css file arrangement
+-improve css

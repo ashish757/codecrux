@@ -1,42 +1,79 @@
-import React, {useState} from "react";
-import {binarySearchVisualizer} from "./algorithms/binarySearch.ts";
+import React, { useEffect, useState } from "react";
+import { binarySearchAlgorithm } from "./algorithms/binarySearch.ts";
 import Controls from "./controls.tsx";
 import DisplayArray from "./components/displayArray.tsx";
+import DisplayBars from "./components/DisplayBars.tsx";
 
-
-const generateSortedArray = (size: number): number[] => {
-    const arr = Array.from({ length: size }, () => Math.floor(Math.random() * 100));
-    return arr.sort((a, b) => a - b);
-};
 
 const BinarySearch: React.FC = () => {
+    const generateSortedArray = (size: number): number[] => {
+        const arr = Array.from({ length: size }, () => Math.floor(Math.random() * 100));
+        return (arr.sort((a, b) => a - b))
+    };
 
-    const [array, setArray] = useState<number[]>(generateSortedArray(15));
+    const [arraySize] = useState<number>(15);
+    const [array, setArray] = useState<number[]>(generateSortedArray(arraySize));
     const [low, setLow] = useState<number>(-1);
     const [mid, setMid] = useState<number>(-1);
     const [high, setHigh] = useState<number>(-1);
     const [foundIndex, setFoundIndex] = useState<number>(-1);
     const [message, setMessage] = useState<string>('');
+    const isPausedRef = React.useRef<{ value: boolean }>({ value: false });
+    const [isPaused, setIsPaused] = useState<boolean>(false);
+    const [target, setTarget] = useState('');
 
-    const startSearch = async (target: number) => {
+
+
+    useEffect(() => {
+        setArray(generateSortedArray(arraySize));
+    }, [arraySize]);
+
+    useEffect(() => {
+        isPausedRef.current.value = isPaused;
+        console.log(`Paused: ${isPaused}`);
+        console.log(`Paused Ref: ${isPausedRef.current}`);
+    }, [isPaused]);
+
+
+
+    const runBinarySearch = async () => {
         setFoundIndex(-1);
         setMessage('');
-        await binarySearchVisualizer(array, target, setLow, setMid, setHigh, setFoundIndex, setMessage);
+        await binarySearchAlgorithm({ array, target: Number(target), setLow, setMid, setHigh, setFoundIndex, setMessage, isPaused: isPausedRef.current });
+    };
+
+    const generateArray = (size: number) => {
+        const newArray = generateSortedArray(size);
+        setArray(newArray);
+        setLow(-1);
+        setMid(-1);
+        setHigh(-1);
+        setFoundIndex(-1);
+        setMessage('');
+    };
+
+    const togglePause = () => {
+        setIsPaused(prev => !prev);
+        isPausedRef.current.value = !isPausedRef.current.value; // Toggle pause state
     };
 
     return (
-        <>
-            <h1 className="sub-heading">Binary Search</h1>
-            <DisplayArray array={array} low={low} mid={mid} high={high} foundIndex={foundIndex} />
+        <section>
+            <div className="container">
+                <input type="number" className="digit" value={target}
+                    onChange={(e) => setTarget(e.target.value)} placeholder="0" />
 
-            <p className="message">{message}</p>
+                <Controls onStart={runBinarySearch} flowControls={{ isPaused, togglePause }} generateArray={generateArray} size={arraySize} />
 
-            <Controls onStart={startSearch} />
+                <p className="message">{message}</p>
 
-            <button className="button sec" onClick={() => setArray(generateSortedArray(15))}>
-                Generate New Array
-            </button>
-        </>
+                <DisplayArray array={array} low={low} mid={mid} high={high} foundIndex={foundIndex} />
+                <DisplayBars array={array} low={low} mid={mid} high={high} foundIndex={foundIndex} />
+
+
+            </div>
+
+        </section>
     )
 }
 

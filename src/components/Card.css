@@ -1,0 +1,111 @@
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transform-origin: center bottom;
+  border: 1px solid #e2e8f0;
+  transform: translateY(0px) scale(1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  animation: gentle-bounce 3s ease-in-out infinite;
+
+}
+
+.card:hover {
+  animation-play-state: paused;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes gentle-bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  75% {
+    transform: translateY(2px);
+  }
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-image img {
+  transform: scale(1.03);
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+.card-description {
+  color: #4a5568;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.card-tag {
+  background: #edf2f7;
+  color: #2d3748;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.card-tag:hover {
+  background: #e2e8f0;
+  transform: scale(1.05);
+}
+
+.card-button {
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-button:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}

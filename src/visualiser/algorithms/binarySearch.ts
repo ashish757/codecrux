@@ -1,21 +1,27 @@
 export const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-//
-// interface visualizer {
-//     array: number[],
-//     target: number,
-//     setLow: number,
-//     setMid: number,
-//     setHigh:number,
-//     setFoundIndex: number,
-//     setMessage: string
-// }
 
-export const binarySearchVisualizer = async (array: number[], target: number,
-setLow: (arg0 : number) => void, setMid: (arg0 : number) => void, setHigh: (arg0 : number) => void, setFoundIndex: (arg0 : number) => void, setMessage: (arg0 : string) => void) => {
+interface args {
+  isPaused: { value: boolean };
+  array: number[];
+  target: number;
+  setLow: (arg0: number) => void;
+  setMid: (arg0: number) => void;
+  setHigh: (arg0: number) => void;
+  setFoundIndex: (arg0: number) => void;
+  setMessage: (arg0: string) => void;
+}
+
+
+export const binarySearchAlgorithm = async ({array, target, setLow, setMid, setHigh, setFoundIndex, setMessage, isPaused}: args) => {
+
     let low = 0;
     let high = array.length - 1;
 
     while (low <= high) {
+            while (isPaused.value) {
+                await sleep(600);
+            }
+
         const mid = Math.floor((low + high) / 2);
 
         setLow(low);
