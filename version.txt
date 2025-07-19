@@ -1,4 +1,4 @@
-v1.1.1
+v1.0.0
 -landing page
 -algorithm visualizer page
 -algorithms --> bubble sort, binary search
@@ -6,11 +6,14 @@ v1.1.1
 -play/pause functionality
 -controls & navbar
 
+ v1.0.1
+-add gh-pages for deployment
+-edit readme
 
-v1.2.1
+v1.1.1
 -disable control buttons accordingly
 -improve pause functionality
 
-v.1.2.2
+v.1.1.2
 -imporve css file arrangement
 -improve css

@@ -7,9 +7,11 @@ typescript
 
 ## how to run locally 
 
-    run the npm commands into the root directory
+run the npm commands into the root directory
 
-```npm install```
+    npm install
 
-```npm run dev```
+than 
+
+    npm run dev
 
