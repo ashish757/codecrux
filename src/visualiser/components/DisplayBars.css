@@ -13,7 +13,34 @@
 .bar {
   width: 10px;
   background-color: gray;
-  transition: height 0.3s, background-color 0.3s;
+  position: relative;
+}
+
+/* Swap animation styles */
+.bar.swapping {
+  z-index: 10;
+  transition: transform 0.4s ease-in-out;
+}
+
+.bar.swap-right {
+  transform: translateX(13px); /* Move right (bar width + gap) */
+}
+
+.bar.swap-left {
+  transform: translateX(-13px); /* Move left (bar width + gap) */
+}
+
+/* Color states for bars */
+.bar.current {
+  background-color: #ff6b6b;
+}
+
+.bar.sorted {
+  background-color: #51cf66;
+}
+
+.bar.swapping {
+  background-color: #ffa726;
 }
 
 

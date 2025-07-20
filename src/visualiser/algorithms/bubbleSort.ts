@@ -3,6 +3,7 @@ import { sleep, getSpeedDelay } from '../../util/helperFunctions';
   setArray: (arg0: number[]) => void;    
     setSortedIndices: (arg0: number[]) => void;
     setcurrentBarPair: (arg0: [number, number] | null) => void;
+    setSwappingPair: (arg0: [number, number] | null) => void;
     isPausedRef: { current: { value: boolean } };
     isTerminatedRef: { current: { value: boolean } };
     callBack: (arg0: boolean) => void;
@@ -11,7 +12,7 @@ import { sleep, getSpeedDelay } from '../../util/helperFunctions';
 }
 
 
-export const bubbleSort = async ({array, setArray, setSortedIndices, setcurrentBarPair, isPausedRef, isTerminatedRef, callBack, speedRef} : args) => {
+export const bubbleSort = async ({array, setArray, setSortedIndices, setcurrentBarPair, setSwappingPair, isPausedRef, isTerminatedRef, callBack, speedRef} : args) => {
     const arr = [...array];
     const n = arr.length;
     const sorted: number[] = [];
@@ -30,8 +31,9 @@ export const bubbleSort = async ({array, setArray, setSortedIndices, setcurrentB
           return;
         }
 
+        // Wait until not paused
         while (isPausedRef.current.value) {
-          await sleep(100); // Wait until not paused
+          await sleep(100); 
           // Also check for termination while paused
           if (isTerminatedRef.current.value) {
             callBack(false);
@@ -41,11 +43,19 @@ export const bubbleSort = async ({array, setArray, setSortedIndices, setcurrentB
             
         setcurrentBarPair([j, j + 1]);
 
-        await sleep(getSpeedDelay(speedRef.current));
+        await sleep(getSpeedDelay(speedRef.current)/2);
 
         if (arr[j] > arr[j + 1]) {
+          // Start swap animation
+          setSwappingPair([j, j + 1]);
+          await sleep(getSpeedDelay(speedRef.current));
+          
+          // Perform the actual swap
           [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
           setArray([...arr]);
+          
+          // End swap animation
+          setSwappingPair(null);
         }
       }
       sorted.unshift(n - i - 1);

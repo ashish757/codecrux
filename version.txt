@@ -17,3 +17,6 @@ v1.1.1
 -imporve css files 
 
 
+v.1.1.2
+-improved animation of bars in bubble sort
+

@@ -7,6 +7,7 @@ const BubbleSortVisualizer: React.FC = () => {
   const [array, setArray] = useState<number[]>([]);
   const [currentBarPair, setcurrentBarPair] = useState<[number, number] | null>(null);
   const [sortedIndices, setSortedIndices] = useState<number[]>([]);
+  const [swappingPair, setSwappingPair] = useState<[number, number] | null>(null);
   const [speed, setSpeed] = useState<number>(1); // Speed control from 1x to 6x
   const speedRef = useRef<number>(1); // Speed reference for real-time updates
 
@@ -56,14 +57,14 @@ const BubbleSortVisualizer: React.FC = () => {
     const callBack = (completed: boolean) => {
       if (completed) {
         setIsTerminated(true);
-        // setcurrentBarPair(null);
-        // setSortedIndices([]);
+        setSwappingPair(null);
         setIsPaused(false);
         return;
       }
 
       setIsTerminated(true);
       setcurrentBarPair(null);
+      setSwappingPair(null);
       setSortedIndices([]);
       setIsPaused(false);
 
@@ -74,6 +75,7 @@ const BubbleSortVisualizer: React.FC = () => {
       setArray,
       setSortedIndices,
       setcurrentBarPair,
+      setSwappingPair,
       isPausedRef,
       isTerminatedRef,
       callBack,
@@ -102,6 +104,7 @@ const BubbleSortVisualizer: React.FC = () => {
           array={array}
           currentBarPair={currentBarPair}
           sortedIndices={sortedIndices}
+          swappingPair={swappingPair}
         />
 
       </div>
