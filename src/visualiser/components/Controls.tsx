@@ -1,5 +1,4 @@
-
-import './components/controls.css';
+import "./controls.css";
 
 interface props {
     size: number;
@@ -37,34 +36,6 @@ const Controls = ({ start, generateArray, size, flowControls, isPaused, terminat
     return (
         <div className="controls">
             <div className="controls-row">
-                <button 
-                    className={`control-btn start-terminate-btn ${isTerminated ? "start-btn" : "terminate-btn"}`} 
-                    onClick={() => isTerminated ? start() : terminate(true)}
-                >
-                    {isTerminated ? "Start" : "Terminate"}
-                </button>
-
-                <div className={`control-flow ${isPaused ? 'expanded' : ''}`}>
-                    {isPaused && (
-                        <button className="control-btn nav-btn left-nav" onClick={() => console.log('Previous step')}>
-                            &lt;
-                        </button>
-                    )}
-                    
-                    <button 
-                        className={`control-btn pause-btn ${isPaused ? 'paused' : ''}`}
-                        onClick={() => flowControls.togglePause()}
-                    >
-                        {isPaused ? 'Resume' : 'Pause'}
-                    </button>
-                    
-                    {isPaused && (
-                        <button className="control-btn nav-btn right-nav" onClick={() => console.log('Next step')}>
-                            &gt;
-                        </button>
-                    )}
-                </div>
-
                 <div className="speed-control">
                     <label htmlFor="speed-slider">Speed: {speed}x</label>
                     <input
@@ -81,8 +52,33 @@ const Controls = ({ start, generateArray, size, flowControls, isPaused, terminat
                         <span>6x</span>
                     </div>
                 </div>
+                <button className={`control-btn ${isTerminated ? "start-btn" : "terminate-btn"}`}  onClick={() => isTerminated ? start() : terminate(true)}>
+                    {isTerminated ? "Start" : "Terminate"}
+                </button>
 
-                <button className="control-btn generate-btn" onClick={handleGenerateArray}>
+                <div className={`control-flow ${isPaused ? 'expanded' : ''}`}>
+                    {isPaused && (
+                        <button className="control-btn step-btn" onClick={() => console.log('Previous step')}>
+                            &lt;
+                        </button>
+                    )}
+                    
+                    <button 
+                        disabled={isTerminated}
+                        className={`control-btn pause-btn ${isPaused ? 'paused' : ''}`}
+                        onClick={() => flowControls.togglePause()}
+                    >
+                        {isPaused ? 'Resume' : 'Pause'}
+                    </button>
+                    
+                    {isPaused && (
+                        <button className="control-btn step-btn" onClick={() => console.log('Next step')}>
+                            &gt;
+                        </button>
+                    )}
+                </div>
+
+                <button disabled={!isTerminated} className="control-btn generate-btn" onClick={handleGenerateArray}>
                     Generate New Array
                 </button>
             </div>

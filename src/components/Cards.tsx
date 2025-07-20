@@ -8,7 +8,6 @@ interface CardData {
   title: string;
   description: string;
   tags: string[];
-  buttonText: string;
   link: string | null;
 }
 
@@ -27,7 +26,6 @@ const Cards: React.FC<CardsProps> = ({ cards }) => {
             title={card.title}
             description={card.description}
             tags={card.tags}
-            buttonText={card.buttonText}
             link={card.link}
           />
         ))}

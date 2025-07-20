@@ -9,8 +9,8 @@ const BubbleSortPage: React.FC = () => {
       
       <div className="page-content">
         <div className="algorithm-info algorithm-info-bubble">
-          <h2>Bubble Sort Algorithm</h2>
-          <p>
+          <h1 className='heading'>Bubble Sort Algorithm</h1>
+          <p className='description'>
             A simple sorting algorithm that repeatedly steps through the list and swaps adjacent elements. Time complexity: O(n²)
           </p>
         </div>

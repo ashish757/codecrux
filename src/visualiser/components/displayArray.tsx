@@ -13,14 +13,14 @@ const DisplayArray = ({ array, low, mid, high, foundIndex } : props) => {
         <div className="displayArray">
 
             {array.map((num, idx) => {
-                let bgColor: string = 'bg-gray';
-                if (idx === mid) bgColor = 'bg-yellow';
-                if (idx === low) bgColor = 'bg-blue';
-                if (idx === high) bgColor = 'bg-red';
-                if (idx === foundIndex) bgColor = 'bg-green';
+                let className: string = '';
+                if (idx === mid) className = 'mid';
+                if (idx === low) className = 'low';
+                if (idx === high) className = 'high';
+                if (idx === foundIndex) className = 'found';
 
                 return (
-                    <div key={idx} className={`number md-box ${bgColor}`} >
+                    <div key={idx} className={`number md-box ${className}`} >
                         {num}
                     </div>
                 );

@@ -1,16 +1,54 @@
-.bg-green {
-    background-color: #87b587;
-}
-.bg-red {
-    background-color: #cf9393;
+:root {
+    --bg-info: #007bff;
+    --bg-info-hover: #006bdd;
+    --bg-success: #5cb85c;
+    --bg-success-hover: #4cae4c;
+    --bg-danger: #d9534f;
+    --bg-danger-hover: #c9302c;
+    --bg-warning: #f0ad4e;
+    --bg-warning-hover: #ec971f;
+    --bg-disabled: #aaa;
 
 }
-.bg-yellow {
-    background-color: #b8b88e;
+
+.bg-success {
+    background-color: var(--bg-success);
 }
-.bg-blue {
-    background-color: #9090ba;
+.bg-danger {
+    background-color: var(--bg-danger);
 }
-.bg-gray {
-    background-color: #ece9e9;
+.bg-danger:hover:not(:disabled) {
+    background-color: var(--bg-danger-hover);
+}
+
+.bg-warning {
+    background-color: var(--bg-warning);
+}
+.bg-info {
+    background-color: var(--bg-info);
+}
+.bg-disabled {
+    background-color: var(--bg-disabled);
+}
+
+
+/* colors of displayBars & displayArray components */
+div.low {
+  background-color: lightblue;
+}
+
+div.mid {
+  background-color: orange;
+}
+
+div.high {
+  background-color: lightcoral;
+}
+
+div.current {
+  background-color: orange;
+}
+
+div.sorted, div.found {
+  background-color: limegreen;
 }

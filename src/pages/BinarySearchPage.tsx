@@ -9,8 +9,8 @@ const BinarySearchPage: React.FC = () => {
       
       <div className="page-content">
         <div className="algorithm-info algorithm-info-binary">
-          <h2>Binary Search Algorithm</h2>
-          <p>
+          <h1 className='heading'>Binary Search Algorithm</h1>
+          <p className='description'>
             Efficiently search through sorted arrays using divide and conquer. Time complexity: O(log n)
           </p>
         </div>

@@ -14,42 +14,20 @@ padding: 0;
     background-color: #f3f3f3;
 }
 
-button {
-  padding: 6px 12px;
-  margin: 0 6px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  font-size: 1.1rem;
-}
-
-button:hover:not(:disabled) {
-  background-color: #0056b3;
-}
-
-button:disabled {
-  background-color: #aaa;
-  cursor: not-allowed;
-}
-
-
-input {
-    border : 1px solid lightgray;
-    padding: 0.5rem;
-    font-size: 2rem;
-}
-input:first-child {
-    outline: none;
+.container {
+  text-align: center;
+  font-family: sans-serif;
+  margin: 20px auto;
+  max-width: 900px;
 }
 
 input.digit {
-    width: 10rem;
+  max-width: 150px;
+  padding: .5rem 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+  border: 2px solid lightgray;
+  border-radius: 2px;
+  margin: 5px;
+  outline: none;
 }
-
-
-
-

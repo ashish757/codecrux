@@ -13,7 +13,7 @@ v1.0.0
 v1.1.1
 -disable control buttons accordingly
 -improve pause functionality
+-add speed control
+-imporve css files 
 
-v.1.1.2
--imporve css file arrangement
--improve css
+

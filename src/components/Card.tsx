@@ -7,7 +7,6 @@ interface CardProps {
   title: string;
   description: string;
   tags: string[];
-  buttonText: string;
   link: string | null;
 }
 
@@ -16,7 +15,6 @@ const Card: React.FC<CardProps> = ({
   title,
   description,
   tags,
-  buttonText = "Learn More",
   link
 }) => {
   return (
@@ -40,12 +38,12 @@ const Card: React.FC<CardProps> = ({
           link ? (
                   <Link to={link} className="card-link">
                   <button className="card-button">
-                    {buttonText}
+                    See Visualization
                   </button>
                 </Link>
                 ) : (
                   <button className="card-button">
-                    {buttonText}
+                    Coming Soon
                   </button>
                 )
         }

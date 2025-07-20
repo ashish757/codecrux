@@ -1,5 +1,4 @@
 import React from 'react';
-import "./algorithmVisualizer.css";
 import BinarySearchPage from './BinarySearchPage.tsx';
 import BubbleSortPage from './BubbleSortPage.tsx';
 import Cards from '../components/Cards.tsx';
@@ -14,7 +13,6 @@ const VisualizerHome: React.FC = () => {
             title: 'Binary Search',
             description: 'Efficiently search through sorted arrays using the divide and conquer approach. Time complexity: O(log n)',
             tags: ['Search', 'Divide & Conquer', 'O(log n)'],
-            buttonText: 'Try Binary Search',
             link: "/visualiser/binarysearch"
         },
         {
@@ -22,7 +20,6 @@ const VisualizerHome: React.FC = () => {
             title: 'Bubble Sort',
             description: 'A simple sorting algorithm that repeatedly steps through the list and swaps adjacent elements if they are in the wrong order.',
             tags: ['Sorting', 'Comparison', 'O(n²)'],
-            buttonText: 'Try Bubble Sort',
             link: "/visualiser/bubblesort",
         },
         {
@@ -30,7 +27,6 @@ const VisualizerHome: React.FC = () => {
             title: 'Quick Sort',
             description: 'An efficient divide-and-conquer sorting algorithm that picks a pivot element and partitions the array around it.',
             tags: ['Sorting', 'Divide & Conquer', 'O(n log n)'],
-            buttonText: 'Coming Soon',
             link: null
         },
         {
@@ -38,7 +34,6 @@ const VisualizerHome: React.FC = () => {
             title: 'Merge Sort',
             description: 'A stable divide-and-conquer sorting algorithm that divides the array into halves and merges them back in sorted order.',
             tags: ['Sorting', 'Stable', 'O(n log n)'],
-            buttonText: 'Coming Soon',
             link: null
         }
     ];
@@ -48,7 +43,7 @@ const VisualizerHome: React.FC = () => {
             <Navbar />
             
             <h1 className="heading">Algorithm Visualizer</h1>
-            <p className="visualizer-home-description">
+            <p className="description">
                 Choose an algorithm to explore and visualize how it works step by step
             </p>
 

@@ -1,0 +1,230 @@
+.controls {
+  margin: 15px 0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+
+
+/* Base button styles */
+.control-btn {
+  padding: 8px 16px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  min-height: 40px;
+}
+
+.control-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.control-btn:disabled {
+  background-color: var(--bg-disabled);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Start/Terminate button */
+.start-btn {
+  background-color: var(--bg-info);
+}
+
+.start-btn:hover:not(:disabled) {
+  background-color: var(--bg-info-hover);
+}
+
+.terminate-btn {
+  background-color: var(--bg-danger);
+}
+
+.terminate-btn:hover:not(:disabled) {
+  background-color: var(--bg-danger-hover);
+}
+
+/* Pause control container */
+.control-flow {
+  display: flex;
+  align-items: center;
+  transition: width 0.3s ease;
+}
+
+
+/* Pause button */
+.pause-btn {
+  background-color: var(--bg-info);
+  transition: all 0.2s ease;
+}
+
+.pause-btn:hover:not(:disabled) {
+  background-color: var(--bg-info-hover);
+}
+
+.pause-btn.paused {
+  background-color: var(--bg-warning);
+  border-radius: 0px;
+}
+
+.pause-btn.paused:hover:not(:disabled) {
+  background-color: var(--bg-warning-hover);
+}
+
+/* Step buttons */
+.step-btn {
+  background-color: var(--bg-warning);
+  min-width: 35px;
+  padding: 8px 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.step-btn:nth-child(1) {
+  border-radius: 5px 0 0 5px;
+  border-right: 2px dotted #fff;
+}
+
+.step-btn:nth-child(3) {
+  border-radius: 0 5px 5px 0;
+  border-left: 2px dotted #fff;
+}
+
+.step-btn:hover:not(:disabled) {
+  background-color: var(--bg-warning-hover);
+}
+
+/* Generate button */
+.generate-btn {
+  background-color: var(--bg-info);
+}
+
+.generate-btn:hover:not(:disabled) {
+  background-color: var(--bg-info-hover);
+}
+
+/* Speed control styles */
+.speed-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 8px;
+  border: 1px solid var(--bg-info);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.speed-control label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--bg-info);
+}
+
+.speed-slider {
+  width: 80px;
+  height: 6px;
+  border-radius: 3px;
+  background: #ddd;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.speed-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg-info);
+  border: 1px solid white;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+
+.speed-slider::-webkit-slider-thumb:hover {
+  background: var(--bg-info-hover);
+}
+
+.speed-slider::-webkit-slider-thumb:active {
+  background-color: var(--bg-success-hover);
+  transform: scale(1.1);
+}
+
+
+.speed-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg-info);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.speed-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 80px;
+  font-size: 0.7rem;
+  color: #666;
+}
+
+/* Responsive design - keep in row on mobile too */
+@media (max-width: 768px) {
+  .controls {
+    padding: 8px;
+    gap: 10px;
+  }
+  
+  .controls-row {
+    gap: 10px;
+  }
+  
+  .control-btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    min-height: 36px;
+  }
+  
+  .speed-control {
+    padding: 6px;
+  }
+  
+  .speed-slider {
+    width: 60px;
+  }
+  
+  .speed-labels {
+    width: 60px;
+  }
+}
+
+
+
+
+
+
+
+
+
