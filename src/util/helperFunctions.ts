@@ -2,5 +2,5 @@ export const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve
 
 
 export const getSpeedDelay = (speedLevel: number): number => {
-    return 700 - (speedLevel * 100);
+    return 800 - (speedLevel * 100);
 };

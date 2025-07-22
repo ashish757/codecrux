@@ -5,12 +5,12 @@ padding: 0;
 }
 
 .md-box {
-    padding: 10px 15px;
-    font-size: 2rem;
+    padding: 7px 10px;
+    font-size: 1rem;
     text-align: center;
     border: 1px solid lightgray;
-    border-radius: 5px;
-    margin: 5px;
+    border-radius: 3px;
+    margin: 3px;
     background-color: #f3f3f3;
 }
 

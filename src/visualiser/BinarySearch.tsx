@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { binarySearchAlgorithm } from "./algorithms/binarySearch.ts";
 import Controls from "./components/Controls.tsx";
-import DisplayArray from "./components/displayArray.tsx";
+// import DisplayArray from "./components/displayArray.tsx";
 import DisplayBars from "./components/DisplayBars.tsx";
 
 
 const BinarySearch: React.FC = () => {
     const generateSortedArray = (size: number): number[] => {
-        const arr = Array.from({ length: size }, () => Math.floor(Math.random() * 100));
+        const arr = Array.from({ length: size }, () => Math.floor(Math.random() * 100) + 1);
         return (arr.sort((a, b) => a - b))
     };
 
-    const [arraySize] = useState<number>(15);
+    const [arraySize] = useState<number>(30);
     const [array, setArray] = useState<number[]>(generateSortedArray(arraySize));
     const [low, setLow] = useState<number>(-1);
     const [mid, setMid] = useState<number>(-1);
@@ -108,7 +108,7 @@ const BinarySearch: React.FC = () => {
 
                 <p className="message">{message}</p>
 
-                <DisplayArray array={array} low={low} mid={mid} high={high} foundIndex={foundIndex} />
+                {/*<DisplayArray array={array} low={low} mid={mid} high={high} foundIndex={foundIndex} />*/}
                 <DisplayBars array={array} low={low} mid={mid} high={high} foundIndex={foundIndex} />
 
 

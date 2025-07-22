@@ -4,6 +4,7 @@ import BubbleSortPage from './BubbleSortPage.tsx';
 import Cards from '../components/Cards.tsx';
 import Navbar from '../components/Navbar';
 import { Routes, Route } from 'react-router-dom';
+import QuickSortPage from "./QuickSortPage.tsx";
 
 // Landing page component for /visualiser
 const VisualizerHome: React.FC = () => {
@@ -27,7 +28,7 @@ const VisualizerHome: React.FC = () => {
             title: 'Quick Sort',
             description: 'An efficient divide-and-conquer sorting algorithm that picks a pivot element and partitions the array around it.',
             tags: ['Sorting', 'Divide & Conquer', 'O(n log n)'],
-            link: null
+            link: "/visualiser/quicksort"
         },
         {
             id: '4',
@@ -59,6 +60,8 @@ const AlgorithmVisualizer: React.FC = () => {
             <Route path="/" element={<VisualizerHome />} />
             <Route path="/binarysearch" element={<BinarySearchPage />} />
             <Route path="/bubblesort" element={<BubbleSortPage />} />
+            <Route path="/quicksort" element={<QuickSortPage />} />
+
         </Routes>
     );
 };

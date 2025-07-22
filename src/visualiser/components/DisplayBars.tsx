@@ -10,6 +10,8 @@ interface Props {
   sortedIndices?: number[];
   currentBarPair?: [number, number] | null;
   swappingPair?: [number, number] | null;
+  pivotIndex?: number | null;
+  partitionRange?: [number, number] | null;
 }
 
 const BinarySearchVisualizer: React.FC<Props> = (props :Props) => {
@@ -21,7 +23,7 @@ const BinarySearchVisualizer: React.FC<Props> = (props :Props) => {
 
         {props.array.map((value, index) => {
           let className = '';
-          let barHeight = value*2; // Default to 0 if height is not defined
+          const barHeight = value*2; // Default to 0 if height is not defined
 
           if (index === props?.mid) className += ' mid';
           else if (index === props?.low) className += ' low';
@@ -39,6 +41,12 @@ const BinarySearchVisualizer: React.FC<Props> = (props :Props) => {
             } else if (index === rightIndex) {
               className += ' swap-left';
             }
+          }
+
+          // Highlight pivot and partition range for QuickSort
+          if (index === props?.pivotIndex) className += ' pivot';
+          if (props.partitionRange && index >= props.partitionRange[0] && index <= props.partitionRange[1]) {
+            className += ' in-partition';
           }
 
           return (

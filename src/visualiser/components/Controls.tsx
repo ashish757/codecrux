@@ -58,7 +58,7 @@ const Controls = ({ start, generateArray, size, flowControls, isPaused, terminat
 
                 <div className={`control-flow ${isPaused ? 'expanded' : ''}`}>
                     {isPaused && (
-                        <button className="control-btn step-btn" onClick={() => console.log('Previous step')}>
+                        <button style={{backgroundColor : "var(--bg-disabled)"}} title={"coming soon"} className="control-btn step-btn" onClick={() => console.log('Previous step')}>
                             &lt;
                         </button>
                     )}
@@ -72,7 +72,7 @@ const Controls = ({ start, generateArray, size, flowControls, isPaused, terminat
                     </button>
                     
                     {isPaused && (
-                        <button className="control-btn step-btn" onClick={() => console.log('Next step')}>
+                        <button style={{backgroundColor : "var(--bg-disabled)"}} title={"coming soon"} className="control-btn step-btn" onClick={() => console.log('Next step')}>
                             &gt;
                         </button>
                     )}

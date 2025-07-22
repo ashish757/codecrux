@@ -48,7 +48,7 @@ export const bubbleSort = async ({array, setArray, setSortedIndices, setcurrentB
         if (arr[j] > arr[j + 1]) {
           // Start swap animation
           setSwappingPair([j, j + 1]);
-          await sleep(getSpeedDelay(speedRef.current));
+          await sleep(getSpeedDelay(speedRef.current)/2);
           
           // Perform the actual swap
           [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];

@@ -1,5 +1,8 @@
 .displayArray {
     display: flex;
+    position: absolute;
+    left: 0;
+
 }
 
 .displayArray.col {
