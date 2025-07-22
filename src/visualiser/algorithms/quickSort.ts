@@ -3,6 +3,7 @@ import { sleep, getSpeedDelay } from '../../util/helperFunctions';
 interface args {
   setArray: (arg0: number[]) => void;
   setSortedIndices: (arg0: number[]) => void;
+  setSortedInPartition: (arg0: (arg0 : number[]) => number[]) => void;
   setCurrentBarPair: (arg0: [number, number] | null) => void;
   setSwappingPair: (arg0: [number, number] | null) => void;
   setPivotIndex: (arg0: number | null) => void;
@@ -18,6 +19,7 @@ export const quickSort = async ({
   array, 
   setArray,
   setSortedIndices,
+  setSortedInPartition,
   setCurrentBarPair,
   setSwappingPair,
   setPivotIndex,
@@ -52,9 +54,10 @@ export const quickSort = async ({
           return -1;
         }
       }
-
+      setSortedInPartition((p: number[]) => [...p, i]);
+       // Update sorted in partition
       setCurrentBarPair([j, high]);
-      await sleep(getSpeedDelay(speedRef.current) / 2);
+      await sleep(getSpeedDelay(speedRef.current));
 
       if (arr[j] < pivot) {
         i++;
@@ -94,6 +97,7 @@ export const quickSort = async ({
 
   const quickSortRecursive = async (low: number, high: number): Promise<void> => {
     if (low < high) {
+
       // Check for termination
       if (isTerminatedRef.current.value) {
         return;
@@ -104,10 +108,11 @@ export const quickSort = async ({
       if (pi === -1) return; // Termination occurred during partition
 
       // Mark pivot as sorted
+      setSortedInPartition((p: number[]) => []);
       sorted.push(pi);
       setSortedIndices([...sorted]);
 
-      await sleep(getSpeedDelay(speedRef.current) / 4);
+      await sleep(getSpeedDelay(speedRef.current)); // note for later changes: reduce speed for next partition
 
       await quickSortRecursive(low, pi - 1);
       await quickSortRecursive(pi + 1, high);

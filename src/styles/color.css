@@ -9,6 +9,14 @@
     --bg-warning-hover: #ec971f;
     --bg-disabled: #aaa;
 
+    --red: #ff6b6b;
+    --green: #51cf66; 
+    --orange: #ffa41bff;
+    --purple: #9b27b0;
+    --light-grey: #aaaaaa;
+    --light-blue: #5b99e1;
+
+
 }
 
 .bg-success {
@@ -32,23 +40,49 @@
 }
 
 
-/* colors of displayBars & displayArray components */
 div.low {
-  background-color: lightblue;
+  background-color: var(--orange);
 }
 
 div.mid {
-  background-color: orange;
+  background-color: var(--red);
 }
 
 div.high {
-  background-color: lightcoral;
+  background-color: var(--orange);
 }
 
 div.current {
-  background-color: orange;
+  background-color: var(--red);
 }
 
 div.sorted, div.found {
-  background-color: limegreen;
+  background-color: var(--green);
+}
+
+/* Color states for bars */
+
+.bar.current {
+  background-color: var(--red);
+}
+
+.bar.sorted {
+  background-color: var(--green);
+}
+
+.bar.swapping {
+  background-color: var(--orange);
+}
+
+.in-partition:not(.sorted, .pivot, .current, .swapping, .sorted-in-partition) {
+  background-color: var(--light-grey);
+  opacity: 0.5;
+}
+
+.bar.pivot {
+  background-color: var(--purple);
+}
+
+.bar.sorted-in-partition {
+  background-color: var(--light-blue);
 }

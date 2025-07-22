@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import DisplayBars from './components/DisplayBars.tsx';
 import { bubbleSort } from './algorithms/bubbleSort.ts';
 import Controls from './components/Controls.tsx';
+import Legend from './components/Legend.tsx';
+import { bubbleSortLegend } from '../util/colors.ts';
 
 const BubbleSortVisualizer: React.FC = () => {
   const [array, setArray] = useState<number[]>([]);
@@ -99,6 +101,8 @@ const BubbleSortVisualizer: React.FC = () => {
           speed={speed}
           onSpeedChange={setSpeed}
         />
+
+        <Legend items={bubbleSortLegend} />
 
         <DisplayBars
           array={array}

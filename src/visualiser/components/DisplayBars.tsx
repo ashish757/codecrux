@@ -12,6 +12,7 @@ interface Props {
   swappingPair?: [number, number] | null;
   pivotIndex?: number | null;
   partitionRange?: [number, number] | null;
+  sortedInPartition?: number[];
 }
 
 const BinarySearchVisualizer: React.FC<Props> = (props :Props) => {
@@ -47,6 +48,11 @@ const BinarySearchVisualizer: React.FC<Props> = (props :Props) => {
           if (index === props?.pivotIndex) className += ' pivot';
           if (props.partitionRange && index >= props.partitionRange[0] && index <= props.partitionRange[1]) {
             className += ' in-partition';
+          }
+
+          // Highlight sorted indices in the current partition
+          if (props.sortedInPartition?.includes(index)) {
+            className += ' sorted-in-partition';
           }
 
           return (

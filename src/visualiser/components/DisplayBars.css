@@ -40,26 +40,3 @@
 .bar.swap-left {
   transform: translateX(-26px); /* Move left (bar width + gap) */
 }
-
-/* Color states for bars */
-.bar.current {
-  background-color: #ff6b6b;
-}
-
-.bar.sorted {
-  background-color: #51cf66;
-}
-
-.bar.swapping {
-  background-color: #ffa726;
-}
-
-.bar.pivot {
-  background-color: #9c27b0;
-  box-shadow: 0 0 10px rgba(156, 39, 176, 0.5);
-}
-
-.bar.in-partition {
-  background-color: #2196f3;
-  opacity: 0.7;
-}

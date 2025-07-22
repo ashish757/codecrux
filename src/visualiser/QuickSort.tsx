@@ -2,6 +2,14 @@ import React, { useEffect, useState, useRef } from 'react';
 import DisplayBars from './components/DisplayBars.tsx';
 import { quickSort } from './algorithms/quickSort.ts';
 import Controls from './components/Controls.tsx';
+import Legend from './components/Legend.tsx';
+import { quickSortLegend } from '../util/colors.ts';
+
+// current pivot 
+// current partition range
+// current bar pair being compared
+// last sorted pair
+
 
 const QuickSortVisualizer: React.FC = () => {
   const [array, setArray] = useState<number[]>([]);
@@ -12,6 +20,7 @@ const QuickSortVisualizer: React.FC = () => {
   const [partitionRange, setPartitionRange] = useState<[number, number] | null>(null);
   const [speed, setSpeed] = useState<number>(1); // Speed control from 1x to 6x
   const speedRef = useRef<number>(1); // Speed reference for real-time updates
+  const [sortedInPartition, setSortedInPartition] = useState<number[]>([]); // Track sorted indices in the current partition
 
   const [isPaused, setIsPaused] = useState(false);
   const isPausedRef = useRef<{ value: boolean }>({ value: false }); // Use object similar to BinarySearch
@@ -81,6 +90,7 @@ const QuickSortVisualizer: React.FC = () => {
     await quickSort({
       array,
       setArray,
+      setSortedInPartition,
       setSortedIndices,
       setCurrentBarPair,
       setSwappingPair,
@@ -108,6 +118,8 @@ const QuickSortVisualizer: React.FC = () => {
           onSpeedChange={setSpeed}
         />
 
+        <Legend items={quickSortLegend} />
+
         <DisplayBars
           array={array}
           currentBarPair={currentBarPair}
@@ -115,6 +127,7 @@ const QuickSortVisualizer: React.FC = () => {
           swappingPair={swappingPair}
           pivotIndex={pivotIndex}
           partitionRange={partitionRange}
+          sortedInPartition={sortedInPartition}
         />
       </div>
     </section>

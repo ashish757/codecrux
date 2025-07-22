@@ -3,6 +3,8 @@ import { binarySearchAlgorithm } from "./algorithms/binarySearch.ts";
 import Controls from "./components/Controls.tsx";
 // import DisplayArray from "./components/displayArray.tsx";
 import DisplayBars from "./components/DisplayBars.tsx";
+import Legend from "./components/Legend.tsx";
+import { binarySearchLegend } from "../util/colors.ts";
 
 
 const BinarySearch: React.FC = () => {
@@ -36,7 +38,7 @@ const BinarySearch: React.FC = () => {
         isPausedRef.current.value = isPaused;
     }, [isPaused]);
 
-     useEffect(() => {
+    useEffect(() => {
         isTerminatedRef.current.value = isTerminated;
     }, [isTerminated]);
 
@@ -55,7 +57,7 @@ const BinarySearch: React.FC = () => {
                 setIsTerminated(true);
                 setIsPaused(false);
                 return;
-            } 
+            }
 
             setIsTerminated(true);
             setLow(-1);
@@ -89,13 +91,11 @@ const BinarySearch: React.FC = () => {
                 <input type="number" className="digit" value={target}
                     onChange={(e) => setTarget(e.target.value)} placeholder="0" />
 
-                                <Controls 
+                <Controls
                     start={runBinarySearch}
                     generateArray={generateArray}
                     size={arraySize}
-                    flowControls={{
-                        togglePause: togglePause
-                    }}
+                    flowControls={{ togglePause: togglePause }}
                     isPaused={isPaused}
                     terminate={(value: boolean) => {
                         isTerminatedRef.current.value = value;
@@ -105,6 +105,8 @@ const BinarySearch: React.FC = () => {
                     speed={speed}
                     onSpeedChange={setSpeed}
                 />
+
+                <Legend items={binarySearchLegend} />
 
                 <p className="message">{message}</p>
 
