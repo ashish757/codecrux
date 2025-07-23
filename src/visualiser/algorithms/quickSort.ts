@@ -108,7 +108,7 @@ export const quickSort = async ({
       if (pi === -1) return; // Termination occurred during partition
 
       // Mark pivot as sorted
-      setSortedInPartition((p: number[]) => []);
+      setSortedInPartition((_p: number[]) => []);
       sorted.push(pi);
       setSortedIndices([...sorted]);
 

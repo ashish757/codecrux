@@ -20,7 +20,9 @@ const Home: React.FC = () => {
         </Link>
         
         <button className="home-button-secondary">
-          📚 Learn More
+          <a href="https://github.com/ashish757" target="_blank" rel="noopener noreferrer">
+            📚 Author
+          </a>
         </button>
       </div>
       
