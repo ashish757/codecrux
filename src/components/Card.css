@@ -8,7 +8,16 @@
   transform: translateY(0px) scale(1);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
   animation: gentle-bounce 3s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .card:hover {
@@ -91,6 +100,15 @@
   transform: scale(1.05);
 }
 
+.card-link,
+.card-button {
+  margin-top: auto;
+}
+
+.card-button-container {
+  margin-top: auto;
+}
+
 .card-button {
   width: 100%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -103,6 +121,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 
 .card-button:hover {
   background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);

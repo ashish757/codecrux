@@ -34,21 +34,21 @@ const Card: React.FC<CardProps> = ({
             </span>
           ))}
         </div>
-        {
-          link ? (
-                  <Link to={link} className="card-link">
-                  <button className="card-button">
-                    See Visualization
-                  </button>
-                </Link>
-                ) : (
-                  <button className="card-button">
-                    Coming Soon
-                  </button>
-                )
-        }
-        
-  
+        <div className="card-button-container">
+          {
+            link ? (
+                    <Link to={link} className="card-link">
+                    <button className="card-button">
+                      See Visualization
+                    </button>
+                  </Link>
+                  ) : (
+                    <button className="card-button">
+                      Coming Soon
+                    </button>
+                  )
+          }
+        </div>
       </div>
     </div>
   );
