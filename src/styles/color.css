@@ -74,9 +74,10 @@ div.sorted, div.found {
   background-color: var(--orange);
 }
 
-.in-partition:not(.sorted, .pivot, .current, .swapping, .sorted-in-partition) {
+.in-partition:not(.sorted, .pivot, .current, .swapping, .sorted-in-partition),
+.in-range {
   background-color: var(--light-grey);
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .bar.pivot {

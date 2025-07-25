@@ -134,7 +134,7 @@ export const quickSort = async ({
     } else {
       callBack(false);
     }
-  } catch (error) {
+  } catch (_error) {
     callBack(false);
   }
 };

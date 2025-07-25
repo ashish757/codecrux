@@ -1,5 +1,3 @@
-
-
 const red = '#ff6b6b'; //red
 const green = '#51cf66'; //green
 const orange = '#ffa41bff'; //orange
@@ -35,3 +33,11 @@ export const binarySearchLegend = [
     { color: orange, description: 'Low & High Boundary of Search' },
     { color: green, description: 'Element Being Searched, Found' },
 ]
+
+export const mergeSortLegend = [
+    { color: red, description: 'Elements Being Compared' },
+    { color: orange, description: 'Elements Being Merged' },
+    { color: green, description: 'Sorted Element' },
+    { color: lightGrey, description: 'Current Merge Range' },
+
+];

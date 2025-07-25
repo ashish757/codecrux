@@ -38,6 +38,9 @@ const Home: React.FC = () => {
           <div className="algorithm-tag">
             Quick Sort
           </div>
+          <div className="algorithm-tag">
+            Merge Sort
+          </div>
         </div>
       </div>
     </div>

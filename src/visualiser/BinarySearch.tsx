@@ -5,16 +5,12 @@ import Controls from "./components/Controls.tsx";
 import DisplayBars from "./components/DisplayBars.tsx";
 import Legend from "./components/Legend.tsx";
 import { binarySearchLegend } from "../util/colors.ts";
+import { generateRandomArray } from '../util/helperFunctions.ts';
 
 
 const BinarySearch: React.FC = () => {
-    const generateSortedArray = (size: number): number[] => {
-        const arr = Array.from({ length: size }, () => Math.floor(Math.random() * 100) + 1);
-        return (arr.sort((a, b) => a - b))
-    };
-
     const [arraySize] = useState<number>(30);
-    const [array, setArray] = useState<number[]>(generateSortedArray(arraySize));
+    const [array, setArray] = useState<number[]>(generateRandomArray(arraySize, true, 1, 100));
     const [low, setLow] = useState<number>(-1);
     const [mid, setMid] = useState<number>(-1);
     const [high, setHigh] = useState<number>(-1);
@@ -31,7 +27,7 @@ const BinarySearch: React.FC = () => {
     const [isTerminated, setIsTerminated] = useState<boolean>(true); // to re-render button state
 
     useEffect(() => {
-        setArray(generateSortedArray(arraySize));
+        setArray(generateRandomArray(arraySize, true, 1, 100));
     }, [arraySize]);
 
     useEffect(() => {
@@ -71,7 +67,7 @@ const BinarySearch: React.FC = () => {
     };
 
     const generateArray = (size: number) => {
-        const newArray = generateSortedArray(size);
+        const newArray = generateRandomArray(size, true, 1, 100);
         setArray(newArray);
         // setLow(-1);
         // setMid(-1);

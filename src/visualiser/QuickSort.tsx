@@ -4,6 +4,7 @@ import { quickSort } from './algorithms/quickSort.ts';
 import Controls from './components/Controls.tsx';
 import Legend from './components/Legend.tsx';
 import { quickSortLegend } from '../util/colors.ts';
+import { generateRandomArray } from '../util/helperFunctions.ts';
 
 // current pivot 
 // current partition range
@@ -28,7 +29,7 @@ const QuickSortVisualizer: React.FC = () => {
   const [isTerminated, setIsTerminated] = useState<boolean>(true); // UI state for termination
 
   useEffect(() => {
-    generateRandomArray();
+    generateArray();
   }, []);
 
   useEffect(() => {
@@ -43,23 +44,20 @@ const QuickSortVisualizer: React.FC = () => {
     speedRef.current = speed; // Update speed reference when speed changes
   }, [speed]);
 
-  const generateRandomArray = () => {
-    const arr = Array.from({ length: 30 }, () => Math.floor(Math.random() * 100) + 10);
-    setArray(arr);
-    setSortedIndices([]);
-    setCurrentBarPair(null);
-    setSwappingPair(null);
-    setPivotIndex(null);
-    setPartitionRange(null);
-    setIsPaused(false);
-    isPausedRef.current.value = false; // Reset pause state
-    setIsTerminated(true);
-    isTerminatedRef.current.value = true; // Reset termination state
-  };
-
   const togglePause = () => {
     setIsPaused(prev => !prev);
     isPausedRef.current.value = !isPausedRef.current.value; // Toggle pause state
+  };
+
+  const generateArray = () => {
+    const newArray = generateRandomArray(30, false, 10, 100);
+    setArray(newArray);
+    setCurrentBarPair(null);
+    setSortedIndices([]);
+    setSwappingPair(null);
+    setPivotIndex(null);
+    setPartitionRange(null);
+    setSortedInPartition([]);
   };
 
   const runQuickSort = async () => {
@@ -112,7 +110,7 @@ const QuickSortVisualizer: React.FC = () => {
           isTerminated={isTerminated}
           isPaused={isPaused}
           flowControls={{ togglePause }}
-          generateArray={generateRandomArray}
+          generateArray={generateArray}
           size={15}
           speed={speed}
           onSpeedChange={setSpeed}
@@ -126,7 +124,7 @@ const QuickSortVisualizer: React.FC = () => {
           sortedIndices={sortedIndices}
           swappingPair={swappingPair}
           pivotIndex={pivotIndex}
-          partitionRange={partitionRange}
+          range={partitionRange}
           sortedInPartition={sortedInPartition}
         />
       </div>

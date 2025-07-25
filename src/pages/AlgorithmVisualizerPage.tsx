@@ -5,6 +5,7 @@ import Cards from '../components/Cards.tsx';
 import Navbar from '../components/Navbar';
 import { Routes, Route } from 'react-router-dom';
 import QuickSortPage from "./QuickSortPage.tsx";
+import MergeSortPage from "./MergeSortPage.tsx";
 
 // Landing page component for /visualiser
 const VisualizerHome: React.FC = () => {
@@ -35,7 +36,7 @@ const VisualizerHome: React.FC = () => {
             title: 'Merge Sort',
             description: 'A stable divide-and-conquer sorting algorithm that divides the array into halves and merges them back in sorted order.',
             tags: ['Sorting', 'Stable', 'O(n log n)'],
-            link: null
+            link: "/visualiser/mergesort"
         }
     ];
 
@@ -61,7 +62,7 @@ const AlgorithmVisualizer: React.FC = () => {
             <Route path="/binarysearch" element={<BinarySearchPage />} />
             <Route path="/bubblesort" element={<BubbleSortPage />} />
             <Route path="/quicksort" element={<QuickSortPage />} />
-
+            <Route path="/mergesort" element={<MergeSortPage />} />
         </Routes>
     );
 };

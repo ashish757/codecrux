@@ -4,7 +4,7 @@
   height: 200px;
   margin-top: 20px;
   border: 1px solid #ccc;
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 300px 1.5rem;
   justify-content: center;
   gap: 3px;
   background-color: #f9f9f9;
@@ -34,9 +34,25 @@
 }
 
 .bar.swap-right {
-  transform: translateX(26px); /* Move right (bar width + gap) */
+  transform: translateX(23px); /* Move right (bar width + gap) */
 }
 
 .bar.swap-left {
-  transform: translateX(-26px); /* Move left (bar width + gap) */
+  transform: translateX(-23px); /* Move left (bar width + gap) */
 }
+
+
+/*.depth0, .depth1 {*/
+/*  transform: translateY(calc(230px));*/
+/*  animation: depth .3s linear;*/
+
+/*}*/
+
+/*@keyframes depth {*/
+/*  from {*/
+/*    transform: translateY(0px);*/
+/*  }*/
+/*  to {*/
+/*    transform: translateY(230px);*/
+/*  }*/
+/*}*/
