@@ -18,12 +18,12 @@ const Home: React.FC = () => {
         <Link to="/visualiser" className="home-button-primary">
           🔍 Algorithm Visualizer
         </Link>
-        
-        <button className="home-button-secondary">
           <a href="https://github.com/ashish757" target="_blank" rel="noopener noreferrer">
-            📚 Author
+            <button className="home-button-secondary">
+                📚 Author
+            </button>
           </a>
-        </button>
+
       </div>
       
       <div className="featured-section">
